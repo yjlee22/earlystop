@@ -15,7 +15,7 @@ _Submitted to MICCAI 2026_
 ## Overview
 
 <div align="center">
-  <img src="figure/intro.png" width="85%" alt="Motivation"/>
+  <img src="figure/intro.png" width="800" alt="Motivation"/>
 </div>
 
 <em>Fig. 1. Illustration of resource inefficiency in FL hyperparameter tuning. Since standard FL protocols use a fixed number of global rounds, "bad" configurations waste computational and communication resources. This motivates the need for early stopping in FL for scalable and practical deployment.</em>
@@ -37,7 +37,7 @@ Federated Learning (FL) enables privacy-preserving collaborative training withou
 ## Method
 
 <div align="center">
-  <img src="figure/method.png" width="85%" alt="Method"/>
+  <img src="figure/method.png" width="800" alt="Method"/>
 </div>
 
 <em>Fig. 2. Illustration of the proposed data-free early stopping framework. The server monitors the growth rate of the task vector using only global model parameters and stops training once the growth rate falls below the threshold.</em>
