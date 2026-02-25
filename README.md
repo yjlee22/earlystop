@@ -69,7 +69,7 @@ The framework requires **only two hyperparameters** (τ, ρ) and operates entire
 | 3 | **FedDyn** | SGD-basis | [Acar et al., ICLR 2021](https://openreview.net/pdf?id=B7v4QMR6Z9w) |
 | 4 | **SCAFFOLD** | SGD-basis | [Karimireddy et al., ICML 2020](https://arxiv.org/abs/1910.06378) |
 | 5 | **FedSAM** | SAM-basis | [Qu et al., ICML 2022](https://proceedings.mlr.press/v162/qu22a/qu22a.pdf) |
-| 6 | **FedSpeed** | SAM-bassis | [Sun et al., ICLR 2023](https://openreview.net/pdf?id=bZjxxYURKT) |
+| 6 | **FedSpeed** | SAM-basis | [Sun et al., ICLR 2023](https://openreview.net/pdf?id=bZjxxYURKT) |
 | 7 | **FedSMOO** | SAM-basis | [Sun et al., ICML 2023](https://proceedings.mlr.press/v202/sun23h.html) |
 | 8 | **FedGamma** | SAM-basis | [Dai et al., TNNLS 2024](https://ieeexplore.ieee.org/abstract/document/10269141) |
 | 9 | **FedLESAM** | SAM-basis | [Fan et al., ICML 2024](https://arxiv.org/abs/2405.18890) |
