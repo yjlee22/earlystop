@@ -15,7 +15,7 @@ _Submitted to MICCAI 2026_
 ## Overview
 
 <div align="center">
-  <img src="figure/intro.png" width="100%" alt="Motivation"/>
+  <img src="figure/intro.png" width="85%" alt="Motivation"/>
 </div>
 
 <em>Fig. 1. Illustration of resource inefficiency in FL hyperparameter tuning. Since standard FL protocols use a fixed number of global rounds, "bad" configurations waste computational and communication resources. This motivates the need for early stopping in FL for scalable and practical deployment.</em>
@@ -37,7 +37,7 @@ Federated Learning (FL) enables privacy-preserving collaborative training withou
 ## Method
 
 <div align="center">
-  <img src="figure/method.png" width="100%" alt="Method"/>
+  <img src="figure/method.png" width="85%" alt="Method"/>
 </div>
 
 <em>Fig. 2. Illustration of the proposed data-free early stopping framework. The server monitors the growth rate of the task vector using only global model parameters and stops training once the growth rate falls below the threshold.</em>
@@ -62,18 +62,18 @@ The framework requires **only two hyperparameters** (τ, ρ) and operates entire
 
 ## Supported FL Methods
 
-| Method | Paper |
-|---|---|
-| **FedAvg** | [McMahan et al., AISTATS 2017](http://proceedings.mlr.press/v54/mcmahan17a/mcmahan17a.pdf) |
-| **FedProx** | [Li et al., MLSys 2020](https://arxiv.org/abs/1812.06127) |
-| **FedDyn** | [Acar et al., ICLR 2021](https://openreview.net/pdf?id=B7v4QMR6Z9w) |
-| **SCAFFOLD** | [Karimireddy et al., ICML 2020](https://arxiv.org/abs/1910.06378) |
-| **FedSAM** | [Qu et al., ICML 2022](https://proceedings.mlr.press/v162/qu22a/qu22a.pdf) |
-| **FedSpeed** | [Sun et al., ICLR 2023](https://openreview.net/pdf?id=bZjxxYURKT) |
-| **FedSMOO** | [Sun et al., ICML 2023](https://proceedings.mlr.press/v202/sun23h.html) |
-| **FedGamma** | [Dai et al., TNNLS 2024](https://ieeexplore.ieee.org/abstract/document/10269141) |
-| **FedLESAM** | [Fan et al., ICML 2024](https://arxiv.org/abs/2405.18890) |
-| **FedWMSAM** | [Li et al., NeurIPS 2025](https://arxiv.org/abs/2511.22080) |
+| # | Method | Category | Reference |
+|:---:|:---|:---:|:---|
+| 1 | **FedAvg** | SGD-basis | [McMahan et al., AISTATS 2017](http://proceedings.mlr.press/v54/mcmahan17a/mcmahan17a.pdf) |
+| 2 | **FedProx** | SGD-basis | [Li et al., MLSys 2020](https://arxiv.org/abs/1812.06127) |
+| 3 | **FedDyn** | SGD-basis | [Acar et al., ICLR 2021](https://openreview.net/pdf?id=B7v4QMR6Z9w) |
+| 4 | **SCAFFOLD** | SGD-basis | [Karimireddy et al., ICML 2020](https://arxiv.org/abs/1910.06378) |
+| 5 | **FedSAM** | SAM-basis | [Qu et al., ICML 2022](https://proceedings.mlr.press/v162/qu22a/qu22a.pdf) |
+| 6 | **FedSpeed** | SAM-bassis | [Sun et al., ICLR 2023](https://openreview.net/pdf?id=bZjxxYURKT) |
+| 7 | **FedSMOO** | SAM-basis | [Sun et al., ICML 2023](https://proceedings.mlr.press/v202/sun23h.html) |
+| 8 | **FedGamma** | SAM-basis | [Dai et al., TNNLS 2024](https://ieeexplore.ieee.org/abstract/document/10269141) |
+| 9 | **FedLESAM** | SAM-basis | [Fan et al., ICML 2024](https://arxiv.org/abs/2405.18890) |
+| 10 | **FedWMSAM** | SAM-basis | [Li et al., NeurIPS 2025](https://arxiv.org/abs/2511.22080) |
 
 ---
 
@@ -186,22 +186,22 @@ python ablation.py
 
 ### Training Arguments
 
-| Argument | Default | Description |
-|---|---|---|
-| `--method` | `FedAvg` | FL method to use |
-| `--dataset` | `BloodMNIST` | Dataset (`BloodMNIST` or `DermaMNIST`) |
-| `--proposed` | `False` | Use proposed data-free early stopping |
-| `--validation` | `False` | Use validation-based early stopping |
-| `--threshold` | `0.005` | Growth rate threshold τ |
-| `--patience` | `10` | Patience parameter ρ |
-| `--comm-rounds` | `500` | Maximum number of global rounds |
-| `--total-client` | `100` | Total number of clients |
-| `--active-ratio` | `0.1` | Fraction of clients sampled per round |
-| `--non-iid` | `False` | Enable non-IID partitioning |
-| `--split-rule` | `Dirichlet` | Partitioning rule |
-| `--split-coef` | `0.1` | Heterogeneity coefficient c |
-| `--local-epochs` | `5` | Number of local training epochs |
-| `--seed` | `0` | Random seed |
+| Category | Argument | Default | Description |
+|:---:|:---|:---:|:---|
+| **General** | `--method` | `FedAvg` | FL method to use |
+| **General** | `--dataset` | `BloodMNIST` | Dataset (`BloodMNIST` or `DermaMNIST`) |
+| **General** | `--seed` | `0` | Random seed |
+| **FL Setup** | `--comm-rounds` | `500` | Maximum number of global rounds |
+| **FL Setup** | `--total-client` | `100` | Total number of clients |
+| **FL Setup** | `--active-ratio` | `0.1` | Fraction of clients sampled per round |
+| **FL Setup** | `--local-epochs` | `5` | Number of local training epochs |
+| **Early Stopping** | `--proposed` | `False` | Use proposed data-free early stopping |
+| **Early Stopping** | `--validation` | `False` | Use validation-based early stopping |
+| **Early Stopping** | `--threshold` | `0.005` | Growth rate threshold $\tau$ |
+| **Early Stopping** | `--patience` | `10` | Patience parameter $\rho$ |
+| **Data Partitioning** | `--non-iid` | `False` | Enable non-IID partitioning |
+| **Data Partitioning** | `--split-rule` | `Dirichlet` | Partitioning rule |
+| **Data Partitioning** | `--split-coef` | `0.1` | Heterogeneity coefficient $c$ |
 
 **Example: Run proposed early stopping with FedSpeed on DermaMNIST**
 
